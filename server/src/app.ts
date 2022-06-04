@@ -36,6 +36,27 @@ async function main() {
         server.addSchema(schema);
     }
 
+    server.register(
+        swagger,
+        withRefResolver({
+            routePrefix: '/docs',
+            hideUntagged: true,
+            exposeRoute: true,
+            staticCSP: true,
+            uiConfig: {
+                docExpansion: 'full',
+                layout: 'BaseLayout',
+            },
+            openapi: {
+                info: {
+                    title: 'E!Sante',
+                    description: "API pour la gestion de l'application E!Santé",
+                    version: '1.0.0',
+                },
+            },
+        }),
+    );
+
     server.register(userRoutes, { prefix: 'api/users' });
 
     try {
