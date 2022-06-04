@@ -1,0 +1,11 @@
+.Patients{
+    position: absolute;
+    top: 126px;
+    left: 300px;
+
+	padding-left: 97px;
+
+    height: 954px;
+    width: 1620px;
+    background-color: var(--secondary-bg);
+}

@@ -1,5 +1,10 @@
-import React from 'react';
+import LoginCard from '../../components/LoginCard';
+import style from './style.module.css';
 
 export default function Auth() {
-    return <div>Auth Page</div>;
+    return (
+        <div className={style.Auth}>
+            <LoginCard />
+        </div>
+    );
 }

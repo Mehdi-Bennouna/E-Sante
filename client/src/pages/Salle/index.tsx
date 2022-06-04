@@ -1,5 +1,5 @@
-import React from 'react';
+import style from './style.module.css';
 
 export default function Salle() {
-    return <div>Salle Page</div>;
+    return <div className={style.Salle}>Salle Page</div>;
 }
