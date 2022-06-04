@@ -6,6 +6,10 @@ const port = process.env.PORT;
 
 export const server = Fastify();
 
+server.get('/healthcheck', async function () {
+    return { status: 'OK' };
+});
+
 async function main() {
     try {
         await server.listen(port, '0.0.0.0');
