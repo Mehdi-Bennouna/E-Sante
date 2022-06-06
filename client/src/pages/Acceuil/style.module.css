@@ -1,0 +1,28 @@
+.Acceuil {
+    height: 100%;
+}
+
+.Acceuil main {
+    display: flex;
+
+    height: 100%;
+    margin-top: 20px;
+}
+.title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #455560;
+}
+
+.widgets {
+    height: 100%;
+    width: 50%;
+}
+
+.table {
+    height: 100%;
+    width: 50%;
+    background-color: rebeccapurple;
+}
