@@ -1,0 +1,10 @@
+.main_content {
+	position: absolute;
+	top: 126px;
+	left: 300px;
+
+	height: 954px;
+	width: 1620px;
+	
+	background-color: #FAFAFB;
+}
