@@ -1,5 +1,5 @@
-import style from './style.module.css';
+import React from 'react';
 
 export default function Patients() {
-    return <div className={style.Patients}>Patients page</div>;
+    return <div>Patients Page</div>;
 }

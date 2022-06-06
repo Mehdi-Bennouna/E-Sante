@@ -1,18 +1,18 @@
 import style from './style.module.css';
-
-import user from '../../../assets/icons/TopBar/User.svg';
-import search from '../../../assets/icons/TopBar/search.svg';
+import userIcon from '../../../assets/icons/TopBar/User.svg';
+import searchIcon from '../../../assets/icons/TopBar/Search.svg';
 
 export default function TopBar() {
     return (
         <div className={style.TopBar}>
             <div className={style.search}>
-                <input type="text" />
-                <img src={search} alt="" />
+                <input type="text" placeholder="Rechercher..." />
+                <img src={searchIcon} alt="" />
             </div>
+
             <div className={style.user}>
-                <img src={user} alt="" />
-                <h2>Bennouna Mehdi</h2>
+                <img src={userIcon} alt="" />
+                <h1>BENNOUNA Mehdi</h1>
             </div>
         </div>
     );

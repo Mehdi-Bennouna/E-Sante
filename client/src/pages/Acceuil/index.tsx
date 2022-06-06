@@ -1,13 +1,16 @@
+import RdvWidget from '../../components/Acceuil/RdvWidget';
 import style from './style.module.css';
 
 export default function Acceuil() {
     return (
         <div className={style.Acceuil}>
-            <h1 className={style.title}>Acceuil</h1>
-            <div className="rdv_widget"></div>
-            <div className="attente_widget"></div>
-            <div className="examination_widget"></div>
-            <div className="salle_widget"></div>
+            <div className={style.title}>Acceuil</div>
+            <main>
+                <div className={style.widgets}>
+                    <RdvWidget />
+                </div>
+                <div className={style.table}></div>
+            </main>
         </div>
     );
 }

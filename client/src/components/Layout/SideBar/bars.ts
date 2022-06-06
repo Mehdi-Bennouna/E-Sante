@@ -1,27 +1,27 @@
-import acceuilIcon from '../../../assets/icons/Sidebar/Acceuil.svg';
-import patientIcon from '../../../assets/icons/Sidebar/Patients.svg';
-import rdvIcon from '../../../assets/icons/Sidebar/Rendez-vous.svg';
-import salleIcon from '../../../assets/icons/Sidebar/Salle.svg';
+import AcceuilIcon from '../../../assets/icons/SideBar/Acceuil.svg';
+import PatientsIcon from '../../../assets/icons/SideBar/Patients.svg';
+import RdvIcon from '../../../assets/icons/SideBar/Rdv.svg';
+import SalleIcon from '../../../assets/icons/SideBar/Salle.svg';
 
 export const assistantBar = [
     {
         title: 'Acceuil',
-        icon: acceuilIcon,
+        icon: AcceuilIcon,
         link: '/Acceuil',
     },
     {
-        title: 'Patient',
-        icon: patientIcon,
+        title: 'Patients',
+        icon: PatientsIcon,
         link: '/Patients',
     },
     {
         title: 'Rendez-vous',
-        icon: rdvIcon,
+        icon: RdvIcon,
         link: '/Rendez-vous',
     },
     {
         title: "Salle d'attente",
-        icon: salleIcon,
+        icon: SalleIcon,
         link: '/Salle',
     },
 ];

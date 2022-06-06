@@ -1,5 +1,5 @@
-import style from './style.module.css';
+import React from 'react';
 
 export default function Rdvs() {
-    return <div className={style.Rdvs}>Rdvs Page</div>;
+    return <div>Rdvs Page</div>;
 }
