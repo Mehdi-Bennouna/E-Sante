@@ -1,4 +1,4 @@
-.RdvWidget {
+.SalleWidget {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -19,7 +19,7 @@
 }
 
 .text h1 {
-    padding: 10px 0;
+	padding: 10px 0;
 
     font-style: normal;
     font-weight: 700;
