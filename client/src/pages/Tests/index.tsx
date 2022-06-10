@@ -69,6 +69,7 @@ export default function Tests() {
                         columns={columns}
                         rows={rows}
                         hideFooterSelectedRowCount
+                        disableSelectionOnClick
                         pageSize={11}
                         sx={{
                             border: "none",
@@ -79,6 +80,13 @@ export default function Tests() {
                             color: "#455560",
                             "& .MuiDataGrid-row:hover .invis": {
                                 visibility: "visible",
+                                backgroundColor: "#FAFAFB",
+                            },
+                            "& .MuiDataGrid-row:hover": {
+                                backgroundColor: "#FAFAFB",
+                            },
+                            "&.MuiDataGrid-root .MuiDataGrid-cell:focus": {
+                                outline: "none",
                             },
                         }}
                     />

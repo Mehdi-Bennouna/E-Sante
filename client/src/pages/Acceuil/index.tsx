@@ -64,13 +64,24 @@ export default function Acceuil() {
                         rows={rows}
                         columns={columns}
                         hideFooter
+                        disableSelectionOnClick
                         sx={{
-                            border: 'none',
-                            fontStyle: 'normal',
-                            fontWeight: '500',
-                            fontSize: '16px',
-                            lineHeight: '19px',
-                            color: '#455560',
+                            border: "none",
+                            fontStyle: "normal",
+                            fontWeight: "500",
+                            fontSize: "16px",
+                            lineHeight: "19px",
+                            color: "#455560",
+                            "& .MuiDataGrid-row:hover .invis": {
+                                visibility: "visible",
+                                backgroundColor: "#FAFAFB",
+                            },
+                            "& .MuiDataGrid-row:hover": {
+                                backgroundColor: "#FAFAFB",
+                            },
+                            "&.MuiDataGrid-root .MuiDataGrid-cell:focus": {
+                                outline: "none",
+                            },
                         }}
                     />
                 </div>
