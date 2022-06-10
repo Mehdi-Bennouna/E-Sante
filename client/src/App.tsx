@@ -7,6 +7,7 @@ import Salle from './pages/Salle';
 import Rdvs from './pages/Rdvs';
 import Layout from './components/Layout';
 import Acceuil from './pages/Acceuil';
+import Tests from './pages/Tests';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/Patients" element={<Patients />} />
                     <Route path="/Rendez-vous" element={<Rdvs />} />
                     <Route path="/Salle" element={<Salle />} />
+                    <Route path="/Tests" element={<Tests />} />
                 </Route>
             </Routes>
         </Router>

@@ -1,0 +1,52 @@
+.Tests {
+    height: 100%;
+}
+
+.Tests main {
+    height: 100%;
+    margin-top: 20px;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #455560;
+}
+
+.table {
+    box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
+
+    height: 100%;
+    width: 100%;
+
+    padding: 50px;
+}
+
+.add_test {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-left: auto;
+
+    width: fit-content;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add_test:hover {
+    transform: translateX(-4px);
+}
+
+.add_test h3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    margin-left: 8px;
+    color: #349eff;
+}
