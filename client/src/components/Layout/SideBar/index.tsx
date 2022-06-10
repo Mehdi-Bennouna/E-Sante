@@ -1,5 +1,5 @@
 import style from './style.module.css';
-import { assistantBar } from './bars';
+import { assistantBar, medecinBar } from './bars';
 import { useNavigate } from 'react-router-dom';
 
 export default function SideBar() {
@@ -11,7 +11,7 @@ export default function SideBar() {
                 <span>E!</span>Santé
             </h1>
             <ul className={style.bar_items}>
-                {assistantBar.map((entry, key) => {
+                {medecinBar.map((entry, key) => {
                     return (
                         <li
                             className={style.bar_item}
