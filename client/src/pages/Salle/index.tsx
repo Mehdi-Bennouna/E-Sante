@@ -44,13 +44,14 @@ export default function Salle() {
         { field: 'motif', headerName: 'Motif', width: 150 },
         { field: 'heure', headerName: 'Heure', width: 150 },
     ];
+
     return (
         <div className={style.Salle}>
-            <div className={style.title}>Rendez-vous</div>
+            <div className={style.title}>Salle d'attente</div>
             <main>
                 <div className={style.add_salle}>
                     <img src={addSalleIcon} alt="" />
-                    <h3>Créer Rendez-vous</h3>
+                    <h3>Ajouter un patient</h3>
                 </div>
                 <div className={style.table}>
                     <DataGrid
