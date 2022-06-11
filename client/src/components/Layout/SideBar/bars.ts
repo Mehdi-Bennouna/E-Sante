@@ -29,28 +29,28 @@ export const assistantBar = [
 
 export const medecinBar = [
     {
-        title: 'Acceuil',
+        title: "Acceuil",
         icon: AcceuilIcon,
-        link: '/Acceuil',
+        link: "/Acceuil",
     },
     {
-        title: 'Patients',
+        title: "Patients",
         icon: PatientsIcon,
-        link: '/Patients',
+        link: "/Patients",
     },
     {
-        title: 'Rendez-vous',
+        title: "Tests",
+        icon: TestsIcon,
+        link: "/Tests",
+    },
+    {
+        title: "Rendez-vous",
         icon: RdvIcon,
-        link: '/Rendez-vous',
+        link: "/Rendez-vous",
     },
     {
         title: "Salle d'attente",
         icon: SalleIcon,
-        link: '/Salle',
-    },
-    {
-        title: 'Tests',
-        icon: TestsIcon,
-        link: '/Tests',
+        link: "/Salle",
     },
 ];
