@@ -1,0 +1,38 @@
+.MesuresWidget {
+	height: 350px;
+    width: 300px;
+
+    padding: 35px;
+
+    border-radius: 15px;
+    box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
+
+    background-color: #fff;
+}
+
+.MesuresWidget h1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 19px;
+    color: #455560;
+
+	margin-bottom: 30px;
+}
+
+.MesuresWidget h2 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #455560;
+    margin-bottom: 10px;
+}
+
+.MesuresWidget span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #455560; 
+}
