@@ -3,21 +3,19 @@ import style from "./style.module.css";
 export default function AntecedentsWidget() {
     return (
         <div className={style.AntecedentsWidget}>
-            <h1>Antecedents</h1>
-
-            <div className={style.content}>
+            <h1>Antecedants</h1>
+            <div className={style.container}>
                 <div className={style.left}>
-                    <div>
-                        <h2>Intolerences</h2>
+                    <div className={style.alergies}>
+                        <h2>Alergies</h2>
                         <ul>
                             <li>- one</li>
                             <li>- two</li>
                             <li>- three</li>
                         </ul>
                     </div>
-
-                    <div>
-                        <h2>Alergies</h2>
+                    <div className={style.intolerences}>
+                        <h2>intolerences</h2>
                         <ul>
                             <li>- one</li>
                             <li>- two</li>
@@ -26,22 +24,21 @@ export default function AntecedentsWidget() {
                     </div>
                 </div>
 
-                <div>
-                    <div>
-                        <h2>Chroniques</h2>
+                <div className={style.right}>
+                    <div className={style.chroniques}>
+                        <h2>chroniques</h2>
                         <ul>
                             <li>- one</li>
                             <li>- two</li>
                             <li>- three</li>
                         </ul>
                     </div>
-
-                    <div>
-                        <h2>Familiaux</h2>
+                    <div className={style.familiaux}>
+                        <h2>familiaux</h2>
                         <ul>
-                            <li>one</li>
-                            <li>two</li>
-                            <li>three</li>
+                            <li>- one</li>
+                            <li>- two</li>
+                            <li>- three</li>
                         </ul>
                     </div>
                 </div>
