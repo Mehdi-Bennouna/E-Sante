@@ -4,16 +4,14 @@ export default function TraitementWidget() {
     return (
         <div className={style.TraitementWidget}>
             <h1>Traitement</h1>
-            <ul>
-                <li>
-                    Something du <span>22/10/2000</span> au{" "}
-                    <span>22/10/2000</span>
-                </li>
-                <li>
-                    Something du <span>22/10/2000</span> au{" "}
-                    <span>22/10/2000</span>
-                </li>
-            </ul>
+            <div className={style.traitement}>
+                <h2>Retrofilazol</h2> <span>du</span> <h2>22/10/2000</h2>{" "}
+                <span>au</span> <h2>22/10/2000</h2>
+            </div>
+            <div className={style.traitement}>
+                <h2>Retrofilazol</h2> <span>du</span> <h2>22/10/2000</h2>{" "}
+                <span>au</span> <h2>22/10/2000</h2>
+            </div>
         </div>
     );
 }
