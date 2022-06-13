@@ -6,7 +6,7 @@ export default function RdvWidget() {
         <div className={style.RdvWidget}>
             <img src={RdvIcon} alt="" />
             <div className={style.text}>
-                <h1>8/11</h1>
+                <h1>3/9</h1>
                 <h2>Rendez-vous</h2>
             </div>
         </div>

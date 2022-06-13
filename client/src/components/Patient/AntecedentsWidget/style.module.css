@@ -1,40 +1,41 @@
 .AntecedentsWidget {
-	background-color: #fff;
-	padding: 25px;
-	border-radius: 15px;
-	width: 340px;
-	height: 400px;
-	box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    width: 340px;
+    height: 400px;
+    box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
 }
 
 .AntecedentsWidget h1 {
-	font-style: normal;
+    font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 19px;
-	color: #455560;
+    color: #455560;
 }
 
 .AntecedentsWidget h2 {
-	font-style: normal;
+    font-style: normal;
     font-weight: 500;
     font-size: 17px;
     line-height: 19px;
-	color: #455560;	
+    color: #455560;
 }
 
 .AntecedentsWidget ul {
-	list-style: none;
-	margin-bottom: 30px;
+    list-style: none;
+    margin-bottom: 30px;
 }
 
 .AntecedentsWidget li {
-	margin: 10px 0;
+    margin: 10px 0;
+    color: #455560;
 }
 
 .AntecedentsWidget .container {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 40px;
-	height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    height: 100%;
 }

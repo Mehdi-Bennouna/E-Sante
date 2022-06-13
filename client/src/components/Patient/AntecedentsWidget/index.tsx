@@ -9,37 +9,23 @@ export default function AntecedentsWidget() {
                     <div className={style.alergies}>
                         <h2>Alergies</h2>
                         <ul>
-                            <li>- one</li>
-                            <li>- two</li>
-                            <li>- three</li>
+                            <li>- Pollen</li>
                         </ul>
                     </div>
                     <div className={style.intolerences}>
                         <h2>intolerences</h2>
-                        <ul>
-                            <li>- one</li>
-                            <li>- two</li>
-                            <li>- three</li>
-                        </ul>
+                        <ul></ul>
                     </div>
                 </div>
 
                 <div className={style.right}>
                     <div className={style.chroniques}>
                         <h2>chroniques</h2>
-                        <ul>
-                            <li>- one</li>
-                            <li>- two</li>
-                            <li>- three</li>
-                        </ul>
+                        <ul></ul>
                     </div>
                     <div className={style.familiaux}>
                         <h2>familiaux</h2>
-                        <ul>
-                            <li>- one</li>
-                            <li>- two</li>
-                            <li>- three</li>
-                        </ul>
+                        <ul></ul>
                     </div>
                 </div>
             </div>

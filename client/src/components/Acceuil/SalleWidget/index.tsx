@@ -6,7 +6,7 @@ export default function SalleWidget() {
         <div className={style.SalleWidget}>
             <img src={SalleIcon} alt="" />
             <div className={style.text}>
-                <h1>5</h1>
+                <h1>4</h1>
                 <h2>En attente</h2>
             </div>
         </div>
