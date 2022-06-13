@@ -5,16 +5,28 @@ export default function MesuresWidget() {
         <div className={style.MesuresWidget}>
             <h1>Mesures</h1>
             <h2>
-                Poids : <span>74kg</span>
+                Poids : <span>55 kg</span>
             </h2>
             <h2>
-                Tension : <span>tson</span>
+                Taille : <span>135 cm</span>
             </h2>
             <h2>
-                Age : <span>22</span>
+                Tension : <span>-</span>
             </h2>
             <h2>
-                okay : <span>stosnr</span>
+                FC : <span>-</span>
+            </h2>
+            <h2>
+                IMC : <span>-</span>
+            </h2>
+            <h2>
+                PAS : <span>-</span>
+            </h2>
+            <h2>
+                PAD : <span>-</span>
+            </h2>
+            <h2>
+                PAS : <span>-</span>
             </h2>
         </div>
     );

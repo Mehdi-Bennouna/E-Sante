@@ -7,33 +7,33 @@ export default function Rdvs() {
     const rows: GridRowsProp = [
         {
             id: 1,
-            nom: "BENNOUNA",
-            prenom: "Mehdi",
-            age: 22,
+            nom: "BENKHELIFA",
+            prenom: "Abdelghafour",
+            age: 21,
             sexe: "Homme",
             telephone: "0562099072",
-            motif: "Too smart",
-            nRdv: "22/10/2000",
+            motif: "-",
+            heure: "8:30",
         },
         {
             id: 2,
-            nom: "BENNOUNA",
-            prenom: "Mehdi",
-            age: 22,
-            sexe: "Homme",
-            telephone: "0562099072",
-            motif: "Too smart",
-            nRdv: "22/10/2000",
+            nom: "ROUABAH",
+            prenom: "Naila",
+            age: 21,
+            sexe: "Femme",
+            telephone: "0561873072",
+            motif: "-",
+            heure: "9:10",
         },
         {
             id: 3,
-            nom: "BENNOUNA",
-            prenom: "Mehdi",
+            nom: "CHIKHI",
+            prenom: "Sofiane",
             age: 22,
             sexe: "Homme",
             telephone: "0562099072",
-            motif: "Too smart",
-            nRdv: "22/10/2000",
+            motif: "-",
+            heure: "9:40",
         },
     ];
 
@@ -65,8 +65,8 @@ export default function Rdvs() {
                 </div>
                 <div className={style.table}>
                     <h2 className={style.nbRdv}>
-                        6 Rendez-vous pour le{" "}
-                        <span className={style.blueDate}>22/10/2000</span>
+                        2 Rendez-vous pour le{" "}
+                        <span className={style.blueDate}>02/06/2022</span>
                     </h2>
                     <DataGrid
                         columns={columns}

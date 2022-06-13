@@ -11,7 +11,7 @@ export default function InfoWidget() {
                     </h2>
 
                     <h2>
-                        Prenom : <span>Mehdi</span>
+                        Prenom : <span>Alaa</span>
                     </h2>
                 </div>
 
@@ -19,9 +19,7 @@ export default function InfoWidget() {
                     <h2>
                         Date de naissance : <span>22/10/2000</span>
                     </h2>
-                    <h2>
-                        Poids : <span>74kg</span>
-                    </h2>
+
                     <h2>
                         Sexe : <span>Homme</span>
                     </h2>
@@ -34,7 +32,7 @@ export default function InfoWidget() {
                         Téléphone : <span>0562099072</span>
                     </h2>
                     <h2>
-                        E-Mail : <span>mehdi.m.bennouna@gmail.com</span>
+                        E-Mail : <span>alaa.bennouna@gmail.com</span>
                     </h2>
                 </div>
                 <div className={style.line}>
