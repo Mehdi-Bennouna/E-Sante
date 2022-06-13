@@ -9,21 +9,26 @@ import Layout from './components/Layout';
 import Acceuil from './pages/Acceuil';
 import Tests from './pages/Tests';
 
+import { Provider } from "react-redux";
+import store from "./app/store";
+
 function App() {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Auth />} />
-                <Route element={<Layout />}>
-                    <Route path="/Acceuil" element={<Acceuil />} />
-                    <Route path="/Patients/:id" element={<Patient />} />
-                    <Route path="/Patients" element={<Patients />} />
-                    <Route path="/Rendez-vous" element={<Rdvs />} />
-                    <Route path="/Salle" element={<Salle />} />
-                    <Route path="/Tests" element={<Tests />} />
-                </Route>
-            </Routes>
-        </Router>
+        <Provider store={store}>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Auth />} />
+                    <Route element={<Layout />}>
+                        <Route path="/Acceuil" element={<Acceuil />} />
+                        <Route path="/Patients/:id" element={<Patient />} />
+                        <Route path="/Patients" element={<Patients />} />
+                        <Route path="/Rendez-vous" element={<Rdvs />} />
+                        <Route path="/Salle" element={<Salle />} />
+                        <Route path="/Tests" element={<Tests />} />
+                    </Route>
+                </Routes>
+            </Router>
+        </Provider>
     );
 }
 
