@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,22 +8,44 @@ import style from "./style.module.css";
 export default function SignInCard() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [wrongPass, setWrongPass] = useState(false);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        dispatch(
-            login({
-                username: username,
-                password: password,
-                loggedIn: true,
-            }),
-        );
+        try {
+            const response = await axios.post(
+                "http://localhost:3001/api/users/login",
+                {
+                    username: username,
+                    password: password,
+                },
+            );
 
-        navigate({ pathname: "/Acceuil" });
+            console.log(response);
+
+            dispatch(
+                login({
+                    userId: response.data.userId,
+                    username: response.data.username,
+                    type: response.data.type,
+                    accessToken: response.data.accessToken,
+                    loggedIn: true,
+                }),
+            );
+
+            navigate({ pathname: "/Acceuil" });
+        } catch (e) {
+            setWrongPass(true);
+            console.error(e);
+        }
+
+        //if axios request 200 ==> dispatch and navigate to dashboard
+
+        //if axios request 401 ==> wrong password
     };
 
     return (
@@ -48,7 +71,9 @@ export default function SignInCard() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <h3>Utilisateur ou mot de passe invalide</h3>
+                <h3 className={wrongPass ? "" : style.invis}>
+                    Utilisateur ou mot de passe invalide
+                </h3>
             </div>
 
             <button type="submit">Se Connecter</button>
