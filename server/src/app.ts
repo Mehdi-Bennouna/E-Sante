@@ -1,23 +1,25 @@
 import Fastify, { FastifyReply, FastifyRequest } from 'fastify';
 import fjwt from '@fastify/jwt';
-import swagger from 'fastify-swagger';
-import { withRefResolver } from 'fastify-zod';
-import logger from './utils/logger';
-import 'dotenv/config';
-import userRoutes from './modules/user/user.routes';
-import { userSchemas } from './modules/user/user.schemas';
+import cors from "fastify-cors";
+import swagger from "fastify-swagger";
+import { withRefResolver } from "fastify-zod";
+import logger from "./utils/logger";
+import "dotenv/config";
+import userRoutes from "./modules/user/user.routes";
+import { userSchemas } from "./modules/user/user.schemas";
 
-const port = process.env.PORT!;
+const port = parseInt(process.env.PORT!);
 const jwtSecret = process.env.JWTSECRET!;
 
 export const server = Fastify();
 
+server.register(cors);
 server.register(fjwt, {
     secret: jwtSecret,
 });
 
 server.decorate(
-    'authenticate',
+    "authenticate",
     async (request: FastifyRequest, reply: FastifyReply) => {
         try {
             await request.jwtVerify();
@@ -27,8 +29,8 @@ server.decorate(
     },
 );
 
-server.get('/healthcheck', async function () {
-    return { status: 'OK' };
+server.get("/healthcheck", async function () {
+    return { status: "OK" };
 });
 
 async function main() {
@@ -39,28 +41,28 @@ async function main() {
     server.register(
         swagger,
         withRefResolver({
-            routePrefix: '/docs',
+            routePrefix: "/docs",
             hideUntagged: true,
             exposeRoute: true,
             staticCSP: true,
             uiConfig: {
-                docExpansion: 'full',
-                layout: 'BaseLayout',
+                docExpansion: "full",
+                layout: "BaseLayout",
             },
             openapi: {
                 info: {
-                    title: 'E!Sante',
+                    title: "E!Sante",
                     description: "API pour la gestion de l'application E!Santé",
-                    version: '1.0.0',
+                    version: "1.0.0",
                 },
             },
         }),
     );
 
-    server.register(userRoutes, { prefix: 'api/users' });
+    server.register(userRoutes, { prefix: "api/users" });
 
     try {
-        await server.listen(port, '0.0.0.0');
+        await server.listen({ port: port });
         logger.info(`Server ready at http://localhost:${port}`);
     } catch (e) {
         logger.error(e);
