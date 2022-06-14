@@ -9,8 +9,10 @@ export async function createUser(input: CreateUserInput) {
     const user = await prisma.user.create({
         data: {
             username: input.username,
-            type: input.type,
             password: password,
+            nom: input.nom,
+            prenom: input.prenom,
+            type: input.type,
         },
     });
 

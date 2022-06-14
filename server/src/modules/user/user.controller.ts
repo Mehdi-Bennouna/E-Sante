@@ -31,13 +31,16 @@ export async function loginUserHandler(
     if (!user) {
         return reply
             .code(401)
-            .send({ message: 'invalid username or passowrds' });
+            .send({ message: "invalid username or passowrds" });
     }
 
     const correctPassword = await bcrypt.compare(body.password, user.password);
 
     if (correctPassword) {
         return {
+            userId: user.id,
+            username: user.username,
+            type: user.type,
             accessToken: server.jwt.sign({
                 id: user.id,
                 username: user.username,
