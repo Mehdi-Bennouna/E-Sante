@@ -8,17 +8,80 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(cuid())
-  username String @unique
+  id       String   @id @default(cuid())
+  username String   @unique
   password String
-  type UserType
+  nom      String
+  prenom   String
+  type     UserType
+}
+
+model Patient {
+  id          String       @id @default(cuid())
+  nom         String
+  prenom      String
+  ddn         DateTime
+  sexe        Sexe
+  tel         String
+  email       String
+  addresse    String
+  Antecedants Antecedants?
+  Mesures     Mesures[]
+  Traitement  Traitement[]
+  RendezVous  RendezVous[]
+}
+
+model Antecedants {
+  patient Patient @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  patientId    String   @id
+  alergies     String[]
+  intolerences String[]
+  chroniques   String[]
+  familiaux    String[]
+}
+
+model Mesures {
+  patient Patient @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  id        String @id @default(cuid())
+  patientId String
+  poids     Int
+  taill     Int
+  tension   Int
+  fc        Int
+  imc       Int
+  pas       Int
+  pad       Int
+}
+
+model Traitement {
+  patient Patient @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  id        String   @id @default(cuid())
+  patientId String
+  nom       String
+  debut     DateTime
+  fin       DateTime
+  actif     Boolean
+}
+
+model RendezVous {
+  patient Patient @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  id        String   @id @default(cuid())
+  patientId String
+  motif     String
+  heure     DateTime
 }
 
 enum UserType {
   ADMIN
   MEDECIN
   ASSISTANT
-  PATIENT
 }
 
-
+enum Sexe {
+  HOMME
+  FEMME
+}
