@@ -31,6 +31,8 @@ export default function SignInCard() {
                 login({
                     userId: response.data.userId,
                     username: response.data.username,
+                    nom: response.data.nom,
+                    prenom: response.data.prenom,
                     type: response.data.type,
                     accessToken: response.data.accessToken,
                     loggedIn: true,
