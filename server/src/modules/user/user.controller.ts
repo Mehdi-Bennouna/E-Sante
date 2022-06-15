@@ -40,6 +40,8 @@ export async function loginUserHandler(
         return {
             userId: user.id,
             username: user.username,
+            nom: user.nom,
+            prenom: user.prenom,
             type: user.type,
             accessToken: server.jwt.sign({
                 id: user.id,
