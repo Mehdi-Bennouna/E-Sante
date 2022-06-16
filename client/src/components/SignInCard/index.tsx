@@ -25,8 +25,6 @@ export default function SignInCard() {
                 },
             );
 
-            console.log(response);
-
             dispatch(
                 login({
                     userId: response.data.userId,

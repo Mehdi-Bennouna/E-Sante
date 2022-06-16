@@ -2,8 +2,10 @@ import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import style from "./style.module.css";
 import newFolderIcon from "../../assets/icons/Patients/newFolder.svg";
 import PatientsActions from "../../components/GridActions/PatientsActions";
+import { useNavigate } from "react-router-dom";
 
 export default function Patients() {
+    const navigate = useNavigate();
     const rows: GridRowsProp = [
         {
             id: 1,
@@ -157,11 +159,18 @@ export default function Patients() {
         },
     ];
 
+    const handleCreatePatient = () => {
+        navigate("/Patients/storn");
+    };
+
     return (
         <div className={style.Patients}>
             <div className={style.title}>Patients</div>
             <main>
-                <div className={style.add_patient}>
+                <div
+                    className={style.add_patient}
+                    onClick={handleCreatePatient}
+                >
                     <img src={newFolderIcon} alt="" />
                     <h3>Créer dossier patient</h3>
                 </div>
