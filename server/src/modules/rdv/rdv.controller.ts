@@ -6,6 +6,6 @@ export async function getRdvsHandler(
     request: FastifyRequest,
     reply: FastifyReply,
 ) {
-    const products = await getRdvs();
-    return products;
+    const rdvs = await getRdvs();
+    return rdvs;
 }
