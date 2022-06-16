@@ -66,3 +66,9 @@
 .blueDate {
     color: #349EFF;
 }
+
+.date {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
