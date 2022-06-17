@@ -1,8 +1,10 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import {
+    createPatient,
     deletePatient,
     getPatientByInfo,
     getPatients,
+    updatePatient,
 } from "./patient.service";
 
 export async function getPatientsHandler(
@@ -24,4 +26,18 @@ export async function deletePatientHandler(
     if (patient) {
         return deletePatient(patient.id);
     }
+}
+
+export async function createPatientHandler(
+    request: FastifyRequest,
+    reply: FastifyReply,
+) {
+    return createPatient(request.body);
+}
+
+export async function updatePatientHandler(
+    request: FastifyRequest,
+    reply: FastifyReply,
+) {
+    return updatePatient(request.body);
 }

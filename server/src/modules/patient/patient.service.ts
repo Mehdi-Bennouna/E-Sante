@@ -14,10 +14,25 @@ export function getPatients() {
     });
 }
 
-export function getPatientByInfo(nom: string, prenom: string) {
-    return prisma.patient.findFirst({ where: { nom, prenom } });
+export async function getPatientByInfo(nom: string, prenom: string) {
+    return await prisma.patient.findFirst({ where: { nom, prenom } });
 }
 
-export function deletePatient(id: string) {
-    return prisma.patient.delete({ where: { id } });
+export async function deletePatient(id: string) {
+    return await prisma.patient.delete({ where: { id } });
+}
+
+export async function createPatient(data: any) {
+    return await prisma.patient.create({ data: data });
+}
+
+export async function updatePatient(data: any) {
+    const patient = await prisma.patient.findFirst({
+        where: { nom: data.old.nom, prenom: data.old.prenom },
+    });
+
+    return prisma.patient.update({
+        where: { id: patient!.id },
+        data: data.new,
+    });
 }

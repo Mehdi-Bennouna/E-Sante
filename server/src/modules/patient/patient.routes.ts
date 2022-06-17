@@ -1,8 +1,17 @@
 import { FastifyInstance } from "fastify";
-import { deletePatientHandler, getPatientsHandler } from "./patient.controller";
+import {
+    createPatientHandler,
+    deletePatientHandler,
+    getPatientsHandler,
+    updatePatientHandler,
+} from "./patient.controller";
 
 async function patientRoutes(server: FastifyInstance) {
     server.get("/", {}, getPatientsHandler);
+
+    server.post("/", {}, createPatientHandler);
+
+    server.put("/", {}, updatePatientHandler);
 
     server.delete("/", {}, deletePatientHandler);
 }
