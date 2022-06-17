@@ -7,12 +7,16 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import moment from "moment";
 import { createTheme, ThemeProvider } from "@mui/material";
+import PatientModal from "../../components/Patients/PatientModal";
 
 export default function Patients() {
-    const navigate = useNavigate();
-    const [data, setData] = useState([]);
-
     const theme = createTheme({}, frFR);
+
+    const navigate = useNavigate();
+
+    const [data, setData] = useState([]);
+    const [isShown, setShown] = useState(false);
+    const [old, setOld] = useState(null);
 
     useEffect(() => {
         axios.get("http://localhost:3001/api/patients").then((response) => {
@@ -39,7 +43,7 @@ export default function Patients() {
                 }),
             );
         });
-    }, []);
+    }, [isShown]);
 
     const columns: GridColDef[] = [
         { field: "nom", headerName: "Nom", width: 200 },
@@ -61,6 +65,8 @@ export default function Patients() {
                         row={params.row}
                         data={data}
                         setData={setData}
+                        setOld={setOld}
+                        setShown={setShown}
                     />
                 );
             },
@@ -68,7 +74,7 @@ export default function Patients() {
     ];
 
     const handleCreatePatient = () => {
-        navigate("/Patients/storn");
+        setShown(true);
     };
 
     return (
@@ -109,6 +115,16 @@ export default function Patients() {
                             }}
                         />
                     </div>
+
+                    {isShown && (
+                        <PatientModal
+                            onClose={() => {
+                                setShown(false);
+                                setOld(null);
+                            }}
+                            old={old}
+                        />
+                    )}
                 </main>
             </div>
         </ThemeProvider>

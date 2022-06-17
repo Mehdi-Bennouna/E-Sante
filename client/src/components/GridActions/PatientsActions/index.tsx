@@ -10,7 +10,25 @@ export default function PatientsActions(props: any) {
 		visibility : hidden;
 	}`;
 
-    const handleEdit = () => {};
+    const handleEdit = async () => {
+        const user = (
+            await axios.put("http://localhost:3001/api/patients", {
+                old: {
+                    nom: props.row.nom,
+                    prenom: props.row.prenom,
+                },
+                new: {
+                    nom: props.row.nom,
+                    prenom: props.row.prenom,
+                },
+            })
+        ).data;
+
+        console.log(user);
+
+        props.setOld(user);
+        props.setShown(true);
+    };
 
     const handleOpen = () => {
         console.log(props.row);
