@@ -105,6 +105,7 @@ export default function Rdvs() {
                             disableSelectionOnClick
                             pageSize={11}
                             sx={{
+                                height: "90%",
                                 border: "none",
                                 fontStyle: "normal",
                                 fontWeight: "500",
