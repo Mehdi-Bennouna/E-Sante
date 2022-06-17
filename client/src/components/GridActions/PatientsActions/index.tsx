@@ -24,15 +24,12 @@ export default function PatientsActions(props: any) {
             })
         ).data;
 
-        console.log(user);
 
         props.setOld(user);
         props.setShown(true);
     };
 
-    const handleOpen = () => {
-        console.log(props.row);
-    };
+    const handleOpen = () => {};
 
     const handleDelete = () => {
         axios.delete("http://localhost:3001/api/patients", {

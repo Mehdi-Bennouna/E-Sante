@@ -72,7 +72,7 @@ model RendezVous {
   id        String   @id @default(cuid())
   patientId String
   motif     String
-  heure     DateTime
+  date     DateTime
 }
 
 enum UserType {

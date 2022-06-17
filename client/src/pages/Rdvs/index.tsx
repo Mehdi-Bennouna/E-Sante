@@ -8,10 +8,15 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import newRdvIcon from "../../assets/icons/Rendez_vous/newRdv.svg";
 import RdvsActions from "../../components/GridActions/RdvsActions";
+import RdvModal from "../../components/Rdvs/RdvModal";
 import style from "./style.module.css";
 
 function formatDate(date: Date | string) {
     return moment(date).format("yyyy/MM/DD");
+}
+
+function formatHeure(date: Date) {
+    return moment(date).format("hh:mm");
 }
 
 export default function Rdvs() {
@@ -19,13 +24,15 @@ export default function Rdvs() {
 
     const [data, setData] = useState([]);
     const [date, setDate] = useState(today);
+    const [isShown, setShown] = useState(false);
+    const [old, setOld] = useState(null);
 
     useEffect(() => {
         axios.get("http://localhost:3001/api/rdvs/").then((response) => {
             setData(
                 response.data
                     .filter((element: any) => {
-                        const elementDate = formatDate(element.heure);
+                        const elementDate = formatDate(element.date);
 
                         if (elementDate === date) {
                             return true;
@@ -34,27 +41,31 @@ export default function Rdvs() {
                         }
                     })
                     .map((element: any, index: any) => {
-                        const time = formatDate(element.heure);
+                        const date = formatDate(element.date);
+                        const heure = formatHeure(element.date);
 
                         return {
                             id: index + 1,
+                            rdvId: element.id,
                             nom: element.patient.nom,
                             prenom: element.patient.prenom,
                             sexe: element.patient.sexe,
                             telephone: element.patient.tel,
                             motif: element.motif,
-                            heure: time,
+                            date: date,
+                            heure: heure,
                         };
                     }),
             );
         });
-    }, [date]);
+    }, [date, isShown]);
 
     const columns: GridColDef[] = [
         { field: "nom", headerName: "Nom", width: 200, type: "date" },
         { field: "prenom", headerName: "Prenom", width: 230 },
         { field: "telephone", headerName: "Telephone", width: 200 },
         { field: "motif", headerName: "Motif", width: 150 },
+        { field: "date", headerName: "Date", width: 150 },
         { field: "heure", headerName: "Heure", width: 150 },
         {
             field: "actions",
@@ -62,8 +73,16 @@ export default function Rdvs() {
             type: "actions",
             width: 200,
             align: "left",
-            renderCell: (test) => {
-                return <RdvsActions />;
+            renderCell: (params) => {
+                return (
+                    <RdvsActions
+                        row={params.row}
+                        data={data}
+                        setData={setData}
+                        setOld={setOld}
+                        setShown={setShown}
+                    />
+                );
             },
         },
     ];
@@ -73,7 +92,12 @@ export default function Rdvs() {
             <div className={style.Rdvs}>
                 <div className={style.title}>Rendez-vous</div>
                 <main>
-                    <div className={style.add_rdv}>
+                    <div
+                        className={style.add_rdv}
+                        onClick={() => {
+                            setShown(true);
+                        }}
+                    >
                         <img src={newRdvIcon} alt="" />
                         <h3>Créer Rendez-vous</h3>
                     </div>
@@ -125,6 +149,15 @@ export default function Rdvs() {
                             }}
                         />
                     </div>
+                    {isShown && (
+                        <RdvModal
+                            onClose={() => {
+                                setShown(false);
+                                setOld(null);
+                            }}
+                            old={old}
+                        />
+                    )}
                 </main>
             </div>
         </LocalizationProvider>

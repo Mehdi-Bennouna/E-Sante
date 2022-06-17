@@ -2,7 +2,6 @@ import { DataGrid, frFR, GridColDef } from "@mui/x-data-grid";
 import style from "./style.module.css";
 import newFolderIcon from "../../assets/icons/Patients/newFolder.svg";
 import PatientsActions from "../../components/GridActions/PatientsActions";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import moment from "moment";
@@ -11,8 +10,6 @@ import PatientModal from "../../components/Patients/PatientModal";
 
 export default function Patients() {
     const theme = createTheme({}, frFR);
-
-    const navigate = useNavigate();
 
     const [data, setData] = useState([]);
     const [isShown, setShown] = useState(false);
@@ -24,6 +21,7 @@ export default function Patients() {
                 response.data.map((element: any, index: any) => {
                     return {
                         id: index + 1,
+                        patientId: element.id,
                         nom: element.nom,
                         prenom: element.prenom,
                         age: "the age",

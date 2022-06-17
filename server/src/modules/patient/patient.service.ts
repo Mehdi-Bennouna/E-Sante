@@ -9,7 +9,7 @@ export function getPatients() {
             ddn: true,
             sexe: true,
             tel: true,
-            RendezVous: { select: { heure: true }, orderBy: { heure: "desc" } },
+            RendezVous: { select: { date: true }, orderBy: { date: "desc" } },
         },
     });
 }

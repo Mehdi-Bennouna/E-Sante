@@ -9,7 +9,6 @@ import {
 import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import axios from "axios";
-import moment from "moment";
 import { useState } from "react";
 import backIcon from "../../../assets/icons/CreationPatient/goBackIcon.svg";
 import validerIcon from "../../../assets/icons/CreationPatient/validerIcon.svg";
