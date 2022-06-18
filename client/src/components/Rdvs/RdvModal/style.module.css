@@ -1,5 +1,5 @@
 .RdvModal {
-	display: flex;
+    display: flex;
     flex-direction: column;
     height: 500px;
     width: 650px;
@@ -13,20 +13,19 @@
     padding: 50px;
 }
 
-
 .title {
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
     line-height: 28px;
     color: #455560;
-	margin-bottom: 35px;
+    margin-bottom: 35px;
 }
 
 .buttons {
     display: flex;
     justify-content: space-between;
-	margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .buttons h3 {
@@ -34,31 +33,30 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 19px;
-	
 }
 
 .buttons .back {
-	display: flex;
+    display: flex;
     align-items: center;
-	transition: 0.2s;
-	cursor: pointer;
-	color: #ff0101;
+    transition: 0.2s;
+    cursor: pointer;
+    color: #ff0101;
 }
 
 .back:hover {
-	transform: translateX(-4px);
+    transform: translateX(-4px);
 }
 
 .buttons .valider {
-	color: #349eff;
-	display: flex;
+    color: #349eff;
+    display: flex;
     align-items: center;
-	transition: 0.2s;
-	cursor: pointer;
+    transition: 0.2s;
+    cursor: pointer;
 }
 
 .valider:hover {
-	transform: translateX(4px);
+    transform: translateX(4px);
 }
 
 .content {

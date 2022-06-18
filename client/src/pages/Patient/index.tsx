@@ -8,15 +8,17 @@ import HistoriqueWidget from "../../components/Patient/HistoriqueWidget";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AntecedentsModal from "../../components/Patient/AntecedentsModal";
 
 export default function Patient() {
     const navigate = useNavigate();
     const userId = useParams().id!;
 
     const [informations, setInformation] = useState(null);
-    const [antecedants, setAntecedants] = useState(null);
+    const [antecedents, setAntecedents] = useState(null);
     const [mesure, setMesure] = useState(null);
     const [traitements, setTraitements] = useState(null);
+    const [antecedentsShown, setAntecedentsShown] = useState(false);
 
     const fetchInformations = async (id: string) => {
         const info = (
@@ -26,12 +28,12 @@ export default function Patient() {
         setInformation(info);
     };
 
-    const fetchAntecedants = async (id: string) => {
-        const antecedants = (
-            await axios.get(`http://localhost:3001/api/antecedants/${userId}`)
+    const fetchAntecedents = async (id: string) => {
+        const antecedents = (
+            await axios.get(`http://localhost:3001/api/antecedents/${userId}`)
         ).data;
 
-        setAntecedants(antecedants);
+        setAntecedents(antecedents);
     };
 
     const fetchMesure = async (id: string) => {
@@ -52,7 +54,7 @@ export default function Patient() {
 
     useEffect(() => {
         fetchInformations(userId);
-        fetchAntecedants(userId);
+        fetchAntecedents(userId);
         fetchMesure(userId);
         fetchTraitements(userId);
     }, []);
@@ -75,8 +77,11 @@ export default function Patient() {
                             <InfoWidget informations={informations} />
                         )}
                         <div className={style.down}>
-                            {antecedants && (
-                                <AntecedentsWidget antecedants={antecedants} />
+                            {antecedents && (
+                                <AntecedentsWidget
+                                    antecedents={antecedents}
+                                    setAntecedentsShown={setAntecedentsShown}
+                                />
                             )}
                             {mesure && <MesuresWidget mesure={mesure} />}
                         </div>
@@ -88,6 +93,13 @@ export default function Patient() {
                         )}
                         <HistoriqueWidget />
                     </div>
+                    {antecedentsShown && (
+                        <AntecedentsModal
+                            old={antecedents}
+                            setAntecedentsShown={setAntecedentsShown}
+                            setAntecedents={setAntecedents}
+                        />
+                    )}
                 </div>
             </main>
         </div>

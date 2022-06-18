@@ -25,13 +25,13 @@ model Patient {
   tel         String
   email       String
   addresse    String
-  Antecedants Antecedants?
+  Antecedents Antecedents?
   Mesures     Mesures[]
   Traitement  Traitement[]
   RendezVous  RendezVous[]
 }
 
-model Antecedants {
+model Antecedents {
   patient Patient @relation(fields: [patientId], references: [id], onDelete: Cascade)
 
   patientId    String   @id
@@ -44,10 +44,10 @@ model Antecedants {
 model Mesures {
   patient Patient @relation(fields: [patientId], references: [id], onDelete: Cascade)
 
-  id        String @id @default(cuid())
+  id        String   @id @default(cuid())
   patientId String
   poids     Int
-  taille     Int
+  taille    Int
   tension   Int
   fc        Int
   imc       Int
@@ -73,7 +73,7 @@ model RendezVous {
   id        String   @id @default(cuid())
   patientId String
   motif     String
-  date     DateTime
+  date      DateTime
 }
 
 enum UserType {
