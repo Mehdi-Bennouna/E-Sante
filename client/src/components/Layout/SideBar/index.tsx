@@ -1,5 +1,5 @@
 import style from './style.module.css';
-import { assistantBar, medecinBar } from "./bars";
+import { adminBar, assistantBar, medecinBar } from "./bars";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../../features/userSlice";
@@ -8,8 +8,22 @@ export default function SideBar() {
     const navigate = useNavigate();
 
     const user = useSelector(selectUser);
+    let barItems;
+    switch (user.type) {
+        case "MEDECIN":
+            barItems = medecinBar;
+            break;
+        case "ASSISTANT":
+            barItems = assistantBar;
+            break;
 
-    const barItems = user.type === "MEDECIN" ? medecinBar : assistantBar;
+        case "ADMIN":
+            barItems = adminBar;
+            break;
+
+        default:
+            break;
+    }
 
     return (
         <nav className={style.SideBar}>
@@ -17,7 +31,7 @@ export default function SideBar() {
                 <span>E!</span>Santé
             </h1>
             <ul className={style.bar_items}>
-                {barItems.map((entry, key) => {
+                {barItems?.map((entry, key) => {
                     return (
                         <li
                             key={key}

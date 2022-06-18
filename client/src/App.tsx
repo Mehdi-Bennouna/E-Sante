@@ -11,6 +11,8 @@ import Tests from './pages/Tests';
 
 import { Provider } from "react-redux";
 import store from "./app/store";
+import Medecins from "./pages/Medecins";
+import Assistants from "./pages/Assistants";
 
 function App() {
     return (
@@ -25,6 +27,8 @@ function App() {
                         <Route path="/Rendez-vous" element={<Rdvs />} />
                         <Route path="/Salle" element={<Salle />} />
                         <Route path="/Tests" element={<Tests />} />
+                        <Route path="/Medecins" element={<Medecins />} />
+                        <Route path="/Assistants" element={<Assistants />} />
                     </Route>
                 </Routes>
             </Router>

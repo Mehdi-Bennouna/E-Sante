@@ -2,7 +2,10 @@ import AcceuilIcon from '../../../assets/icons/SideBar/Acceuil.svg';
 import PatientsIcon from '../../../assets/icons/SideBar/Patients.svg';
 import RdvIcon from '../../../assets/icons/SideBar/Rdv.svg';
 import SalleIcon from '../../../assets/icons/SideBar/Salle.svg';
-import TestsIcon from '../../../assets/icons/SideBar/Tests.svg';
+// import TestsIcon from '../../../assets/icons/SideBar/Tests.svg';
+import MedecinIcon from '../../../assets/icons/SideBar/Salle.svg';
+import AssistantIcon from '../../../assets/icons/SideBar/Salle.svg';
+
 
 export const assistantBar = [
     {
@@ -38,11 +41,7 @@ export const medecinBar = [
         icon: PatientsIcon,
         link: "/Patients",
     },
-    {
-        title: "Tests",
-        icon: TestsIcon,
-        link: "/Tests",
-    },
+
     {
         title: "Rendez-vous",
         icon: RdvIcon,
@@ -52,5 +51,18 @@ export const medecinBar = [
         title: "Salle d'attente",
         icon: SalleIcon,
         link: "/Salle",
+    },
+];
+
+export const adminBar = [
+    {
+        title: "Medecins",
+        icon: MedecinIcon,
+        link: "/Medecins",
+    },
+    {
+        title: "Assistants",
+        icon: AssistantIcon,
+        link: "/Assistants",
     },
 ];
