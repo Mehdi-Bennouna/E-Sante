@@ -34,6 +34,7 @@
     align-items: center;
     height: 55px;
     width: 300px;
+    padding-left: 10px;
 
     background: #ffffff;
     box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
@@ -41,7 +42,7 @@
 
 }
 
-.search input {
+.search .test {
 	height: 100%;
     width: 88%;
 
@@ -57,6 +58,15 @@
 	line-height: 19px;
 	
 	color: #7991A1;
+}
+
+.newSearch fieldset {
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
+
+    
 }
 
 .logout_button {
