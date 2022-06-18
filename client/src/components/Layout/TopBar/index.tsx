@@ -3,8 +3,10 @@ import userIcon from "../../../assets/icons/TopBar/User.svg";
 import searchIcon from "../../../assets/icons/TopBar/Search.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, selectUser } from "../../../features/userSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { load } from "../../../features/patientSlice";
 
 export default function TopBar() {
     const dispatch = useDispatch();
@@ -18,6 +20,32 @@ export default function TopBar() {
         dispatch(logout());
         navigate("/");
     };
+
+    useEffect(() => {
+        setInterval(async () => {
+            async function fetchPatients() {
+                const patients = (
+                    await axios.get("http://localhost:3001/api/patients/")
+                ).data.map((patient: any) => {
+                    return {
+                        id: patient.id,
+                        nom: patient.nom,
+                        prenom: patient.prenom,
+                    };
+                });
+
+                return patients;
+            }
+
+            const patients = await fetchPatients();
+
+            dispatch(
+                load({
+                    patients: patients,
+                }),
+            );
+        }, 500);
+    }, []);
 
     const name = `${user.prenom} ${user.nom}`;
 
