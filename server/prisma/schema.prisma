@@ -47,12 +47,13 @@ model Mesures {
   id        String @id @default(cuid())
   patientId String
   poids     Int
-  taill     Int
+  taille     Int
   tension   Int
   fc        Int
   imc       Int
   pas       Int
   pad       Int
+  createdAt DateTime @default(now())
 }
 
 model Traitement {
