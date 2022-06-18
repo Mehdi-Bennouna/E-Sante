@@ -37,7 +37,11 @@ export default function SignInCard() {
                 }),
             );
 
-            navigate({ pathname: "/Acceuil" });
+            response.data.type === "ADMIN"
+                ? navigate({ pathname: "/Medecins" })
+                : navigate({ pathname: "/Acceuil" });
+
+            
         } catch (e) {
             setWrongPass(true);
             console.error(e);
