@@ -11,10 +11,12 @@ import axios from "axios";
 
 export default function Patient() {
     const navigate = useNavigate();
-    const userId = useParams().id;
+    const userId = useParams().id!;
 
     const [informations, setInformation] = useState(null);
     const [antecedants, setAntecedants] = useState(null);
+    const [mesure, setMesure] = useState(null);
+    const [traitements, setTraitements] = useState(null);
 
     const fetchInformations = async (id: string) => {
         const info = (
@@ -32,9 +34,27 @@ export default function Patient() {
         setAntecedants(antecedants);
     };
 
+    const fetchMesure = async (id: string) => {
+        const mesure = (
+            await axios.get(`http://localhost:3001/api/mesures/${userId}`)
+        ).data[0];
+
+        setMesure(mesure);
+    };
+
+    const fetchTraitements = async (id: string) => {
+        const traitements = (
+            await axios.get(`http://localhost:3001/api/traitement/${userId}`)
+        ).data;
+
+        setTraitements(traitements);
+    };
+
     useEffect(() => {
-        fetchInformations(userId!);
-        fetchAntecedants(userId!);
+        fetchInformations(userId);
+        fetchAntecedants(userId);
+        fetchMesure(userId);
+        fetchTraitements(userId);
     }, []);
 
     return (
@@ -58,12 +78,14 @@ export default function Patient() {
                             {antecedants && (
                                 <AntecedentsWidget antecedants={antecedants} />
                             )}
-                            <MesuresWidget />
+                            {mesure && <MesuresWidget mesure={mesure} />}
                         </div>
                     </div>
 
                     <div className={style.right}>
-                        <TraitementWidget />
+                        {traitements && (
+                            <TraitementWidget traitements={traitements} />
+                        )}
                         <HistoriqueWidget />
                     </div>
                 </div>
