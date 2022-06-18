@@ -39,7 +39,31 @@ export async function deletePatient(id: string) {
 }
 
 export async function createPatient(data: any) {
-    return await prisma.patient.create({ data: data });
+    const patient = await prisma.patient.create({ data: data });
+    await prisma.antecedents.create({
+        data: {
+            alergies: [],
+            chroniques: [],
+            familiaux: [],
+            intolerences: [],
+            patientId: patient.id,
+        },
+    });
+
+    await prisma.mesures.create({
+        data: {
+            patientId: patient.id,
+            fc: 0,
+            imc: 0,
+            pad: 0,
+            pas: 0,
+            poids: 0,
+            taille: 0,
+            tension: 0,
+        },
+    });
+
+    return patient;
 }
 
 export async function updatePatient(data: any) {
