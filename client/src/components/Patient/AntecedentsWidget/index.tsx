@@ -1,15 +1,26 @@
 import style from "./style.module.css";
+import editIcon from "../../../assets/icons/Patient/goBackIcon.svg";
 
-export default function AntecedentsWidget({ antecedants }: any) {
+export default function AntecedentsWidget({
+    antecedents,
+    setAntecedentsShown,
+}: any) {
     return (
         <div className={style.AntecedentsWidget}>
-            <h1>Antecedants</h1>
+            <div className={style.top}>
+                <h1>Antecedents</h1>
+                <img
+                    src={editIcon}
+                    alt=""
+                    onClick={() => setAntecedentsShown(true)}
+                />
+            </div>
             <div className={style.container}>
                 <div className={style.left}>
                     <div className={style.alergies}>
                         <h2>Alergies</h2>
-                        {antecedants.alergies.length > 0 ? (
-                            antecedants.alergies.map(
+                        {antecedents.alergies.length > 0 ? (
+                            antecedents.alergies.map(
                                 (alergie: any, key: any) => {
                                     return (
                                         <ul>
@@ -26,8 +37,8 @@ export default function AntecedentsWidget({ antecedants }: any) {
                     </div>
                     <div className={style.intolerences}>
                         <h2>intolerences</h2>
-                        {antecedants.intolerences.length > 0 ? (
-                            antecedants.intolerences.map(
+                        {antecedents.intolerences.length > 0 ? (
+                            antecedents.intolerences.map(
                                 (intolerence: any, key: any) => {
                                     return (
                                         <ul>
@@ -48,30 +59,30 @@ export default function AntecedentsWidget({ antecedants }: any) {
                     <div className={style.chroniques}>
                         <h2>chroniques</h2>
 
-                        {antecedants.chroniques.length > 0 ? (
-                            antecedants.chroniques.map(
+                        {antecedents.chroniques.length > 0 ? (
+                            antecedents.chroniques.map(
                                 (chronique: any, key: any) => {
                                     return (
                                         <ul>
-                                            <li key={key}>- {chronique}</li>
+                                            <li>- {chronique}</li>
                                         </ul>
                                     );
                                 },
                             )
                         ) : (
                             <ul>
-                                <li></li>
+                                <li key={"0"}></li>
                             </ul>
                         )}
                     </div>
                     <div className={style.familiaux}>
                         <h2>familiaux</h2>
-                        {antecedants.familiaux.length > 0 ? (
-                            antecedants.familiaux.map(
+                        {antecedents.familiaux.length > 0 ? (
+                            antecedents.familiaux.map(
                                 (familial: any, key: any) => {
                                     return (
                                         <ul>
-                                            <li key={key}>- {familial}</li>
+                                            <li>- {familial}</li>
                                         </ul>
                                     );
                                 },

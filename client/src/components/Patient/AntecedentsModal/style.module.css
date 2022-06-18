@@ -1,0 +1,65 @@
+.AntecedentsModal {
+    position: fixed;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.4);
+    height: 500px;
+    width: 650px;
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 15px;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #455560;
+    margin-bottom: 35px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.buttons h3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 19px;
+}
+
+.buttons .back {
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+    cursor: pointer;
+    color: #ff0101;
+}
+
+.back:hover {
+    transform: translateX(-4px);
+}
+
+.buttons .valider {
+    color: #349eff;
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.valider:hover {
+    transform: translateX(4px);
+}
