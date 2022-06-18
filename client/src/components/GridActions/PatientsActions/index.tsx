@@ -4,11 +4,14 @@ import EditIcon from "../../../assets/icons/GridActions/EditIcon.svg";
 import OpenIcon from "../../../assets/icons/GridActions/OpenIcon.svg";
 import DeleteIcon from "../../../assets/icons/GridActions/DeleteIcon.svg";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function PatientsActions(props: any) {
     const myStyle = `.invis {
 		visibility : hidden;
 	}`;
+
+    const navigate = useNavigate();
 
     const handleEdit = async () => {
         const user = (
@@ -24,12 +27,13 @@ export default function PatientsActions(props: any) {
             })
         ).data;
 
-
         props.setOld(user);
         props.setShown(true);
     };
 
-    const handleOpen = () => {};
+    const handleOpen = () => {
+        navigate(`/Patients/${props.row.patientId}`);
+    };
 
     const handleDelete = () => {
         axios.delete("http://localhost:3001/api/patients", {

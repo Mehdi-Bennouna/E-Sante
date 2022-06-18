@@ -1,27 +1,31 @@
+import moment from "moment";
 import style from "./style.module.css";
 
-export default function InfoWidget() {
+export default function InfoWidget({ informations }: any) {
     return (
         <div className={style.InfoWidget}>
             <h1>Informations & Contacts</h1>
             <div className={style.info}>
                 <div className={style.line}>
                     <h2>
-                        Nom : <span>BENNOUNA</span>
+                        Nom : <span>{informations.nom}</span>
                     </h2>
 
                     <h2>
-                        Prenom : <span>Alaa</span>
+                        Prenom : <span>{informations.prenom}</span>
                     </h2>
                 </div>
 
                 <div className={style.line}>
                     <h2>
-                        Date de naissance : <span>22/10/2000</span>
+                        Date de naissance :{" "}
+                        <span>
+                            {moment(informations.ddn).format("yyyy/MM/DD")}
+                        </span>
                     </h2>
 
                     <h2>
-                        Sexe : <span>Homme</span>
+                        Sexe : <span>{informations.sexe}</span>
                     </h2>
                 </div>
             </div>
@@ -29,16 +33,15 @@ export default function InfoWidget() {
             <div className={style.contacts}>
                 <div className={style.line}>
                     <h2>
-                        Téléphone : <span>0562099072</span>
+                        Téléphone : <span>{informations.tel}</span>
                     </h2>
                     <h2>
-                        E-Mail : <span>alaa.bennouna@gmail.com</span>
+                        E-Mail : <span>{informations.email}</span>
                     </h2>
                 </div>
                 <div className={style.line}>
                     <h2>
-                        Addresse :{" "}
-                        <span>20 bd, Hammou Boutlilis, Ain El Bya, Oran </span>
+                        Addresse : <span>{informations.addresse}</span>
                     </h2>
                 </div>
             </div>

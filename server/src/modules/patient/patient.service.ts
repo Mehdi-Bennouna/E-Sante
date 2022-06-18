@@ -14,6 +14,22 @@ export function getPatients() {
     });
 }
 
+export async function getPatient(id: string) {
+    const patient = await prisma.patient.findUnique({
+        where: { id },
+        select: {
+            nom: true,
+            prenom: true,
+            ddn: true,
+            sexe: true,
+            tel: true,
+            email: true,
+            addresse: true,
+        },
+    });
+    return patient;
+}
+
 export async function getPatientByInfo(nom: string, prenom: string) {
     return await prisma.patient.findFirst({ where: { nom, prenom } });
 }

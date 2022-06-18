@@ -9,6 +9,7 @@ import userRoutes from "./modules/user/user.routes";
 import { userSchemas } from "./modules/user/user.schemas";
 import rdvRoutes from "./modules/rdv/rdv.routes";
 import patientRoutes from "./modules/patient/patient.routes";
+import antecedantRoutes from "./modules/antecedants/antecedant.routes";
 
 const port = parseInt(process.env.PORT!);
 const jwtSecret = process.env.JWTSECRET!;
@@ -64,6 +65,7 @@ async function main() {
     server.register(userRoutes, { prefix: "api/users" });
     server.register(rdvRoutes, { prefix: "api/rdvs" });
     server.register(patientRoutes, { prefix: "api/patients" });
+    server.register(antecedantRoutes, { prefix: "api/antecedants" });
 
     try {
         await server.listen({ port: port });

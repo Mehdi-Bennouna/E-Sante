@@ -2,6 +2,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import {
     createPatient,
     deletePatient,
+    getPatient,
     getPatientByInfo,
     getPatients,
     updatePatient,
@@ -13,6 +14,15 @@ export async function getPatientsHandler(
 ) {
     const patients = await getPatients();
     return patients;
+}
+
+export async function getPatientHandler(
+    request: FastifyRequest<{ Params: any }>,
+    reply: FastifyReply,
+) {
+    const patient = await getPatient(request.params.id);
+
+    return patient;
 }
 
 export async function deletePatientHandler(
