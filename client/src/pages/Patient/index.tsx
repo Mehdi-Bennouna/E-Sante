@@ -1,6 +1,7 @@
 import style from "./style.module.css";
 import goBackIcon from "../../assets/icons/Patient/goBackIcon.svg";
 import InfoWidget from "../../components/Patient/InfoWidget";
+import newConsultationIcon from "../../assets/icons/Patient/consultation.svg";
 import AntecedentsWidget from "../../components/Patient/AntecedentsWidget";
 import MesuresWidget from "../../components/Patient/MesuresWidget";
 import TraitementWidget from "../../components/Patient/TraitementWidget";
@@ -63,14 +64,25 @@ export default function Patient() {
         <div className={style.Patient}>
             <div className={style.title}>Details Patient</div>
             <main>
-                <div
-                    className={style.go_back}
-                    onClick={() => navigate("/Patients")}
-                >
-                    <img src={goBackIcon} alt="" />
-                    <h3>Retour</h3>
-                </div>
+                <div className={style.buttons}>
+                    <div
+                        className={style.go_back}
+                        onClick={() => navigate("/Patients")}
+                    >
+                        <img src={goBackIcon} alt="" />
+                        <h3>Retour</h3>
+                    </div>
 
+                    <div
+                        className={style.new_consultation}
+                        onClick={() => {
+                            navigate(`/Consultation/${userId}`);
+                        }}
+                    >
+                        <img src={newConsultationIcon} alt="" />
+                        <h3>Créer une consultation</h3>
+                    </div>
+                </div>
                 <div className={style.content}>
                     <div className={style.left}>
                         {informations && (

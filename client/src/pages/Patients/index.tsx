@@ -9,6 +9,8 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import PatientModal from "../../components/Patients/PatientModal";
 
 export default function Patients() {
+    const year = parseInt(moment(new Date()).format("yyyy"));
+    console.log(year);
     const theme = createTheme({}, frFR);
 
     const [data, setData] = useState([]);
@@ -24,7 +26,8 @@ export default function Patients() {
                         patientId: element.id,
                         nom: element.nom,
                         prenom: element.prenom,
-                        age: "the age",
+                        age:
+                            year - parseInt(moment(element.ddn).format("yyyy")),
                         sexe: element.sexe,
                         telephone: element.tel,
                         nRdv: element.RendezVous[0]

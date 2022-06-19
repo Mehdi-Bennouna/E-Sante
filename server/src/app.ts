@@ -12,6 +12,8 @@ import patientRoutes from "./modules/patient/patient.routes";
 import mesureRoutes from "./modules/mesures/mesure.routes";
 import traitementRoutes from "./modules/Traitements/traitement.routes";
 import antecedentRoutes from "./modules/antecedents/antecedent.routes";
+import ordonnanceRoutes from "./modules/ordonnances/ordonnance.routes";
+import consultationRoutes from "./modules/consultations/consultation.routes";
 
 const port = parseInt(process.env.PORT!);
 const jwtSecret = process.env.JWTSECRET!;
@@ -70,6 +72,8 @@ async function main() {
     server.register(antecedentRoutes, { prefix: "api/antecedents" });
     server.register(mesureRoutes, { prefix: "api/mesures" });
     server.register(traitementRoutes, { prefix: "api/traitement" });
+    server.register(ordonnanceRoutes, { prefix: "api/ordonnances" });
+    server.register(consultationRoutes, { prefix: "api/consultations" });
 
     try {
         await server.listen({ port: port });

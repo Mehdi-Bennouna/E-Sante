@@ -1,8 +1,8 @@
-.Patient {
+.Consultation {
     height: 100%;
 }
 
-.Patient main {
+.Consultation main {
     height: 100%;
     margin-top: 20px;
 }
@@ -47,7 +47,7 @@
     color: #349eff;
 }
 
-.new_consultation {
+.valider {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -60,11 +60,11 @@
     transition: 0.2s;
 }
 
-.new_consultation:hover {
+.valider:hover {
     transform: translateX(4px);
 }
 
-.new_consultation h3 {
+.valider h3 {
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -86,9 +86,21 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
+    border-radius: 15px;
+    height: 56%;
+	padding: 40px;
     width: 50%;
     margin-right: 10px;
+}
+
+.left h2 {
+	font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    color: #455560;
 }
 
 .right {
@@ -97,11 +109,11 @@
     justify-content: space-between;
     width: 50%;
     margin-left: 10px;
-
 }
 
-.down {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+.documents {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: space-between;
 }

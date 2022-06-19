@@ -63,7 +63,7 @@ export default function TopBar() {
             });
 
             setOptions(option);
-        }, 50);
+        }, 500);
     }, []);
 
     const name = `${user.prenom} ${user.nom}`;

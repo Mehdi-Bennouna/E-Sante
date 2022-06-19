@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import store from "./app/store";
 import Medecins from "./pages/Medecins";
 import Assistants from "./pages/Assistants";
+import Consultation from "./pages/Consultation";
 
 function App() {
     return (
@@ -29,6 +30,10 @@ function App() {
                         <Route path="/Tests" element={<Tests />} />
                         <Route path="/Medecins" element={<Medecins />} />
                         <Route path="/Assistants" element={<Assistants />} />
+                        <Route
+                            path="/Consultation/:id"
+                            element={<Consultation />}
+                        />
                     </Route>
                 </Routes>
             </Router>

@@ -17,18 +17,21 @@ model User {
 }
 
 model Patient {
-  id          String       @id @default(cuid())
-  nom         String
-  prenom      String
-  ddn         DateTime
-  sexe        Sexe
-  tel         String
-  email       String
-  addresse    String
-  Antecedents Antecedents?
-  Mesures     Mesures[]
-  Traitement  Traitement[]
-  RendezVous  RendezVous[]
+  id           String         @id @default(cuid())
+  nom          String
+  prenom       String
+  ddn          DateTime
+  sexe         Sexe
+  tel          String
+  email        String
+  addresse     String
+  Antecedents  Antecedents?
+  Mesures      Mesures[]
+  Traitement   Traitement[]
+  RendezVous   RendezVous[]
+  Consultation Consultation[]
+
+  EnAttente EnAttente[]
 }
 
 model Antecedents {
@@ -45,7 +48,7 @@ model Mesures {
   patient Patient @relation(fields: [patientId], references: [id], onDelete: Cascade)
 
   id        String   @id @default(cuid())
-  patientId String
+  patientId String   @unique
   poids     Int
   taille    Int
   tension   Int
@@ -74,6 +77,40 @@ model RendezVous {
   patientId String
   motif     String
   date      DateTime
+}
+
+model Consultation {
+  Patient Patient? @relation(fields: [patientId], references: [id])
+
+  id          String   @id @default(cuid())
+  patientId   String?
+  date        DateTime @default(now())
+  commentaire String
+
+  ordonnances Ordonnance[]
+  Facture     Facture[]
+}
+
+model Ordonnance {
+  Consultation Consultation? @relation(fields: [consultationId], references: [id])
+
+  id             String @id @default(cuid())
+  data           String @db.VarChar(255)
+  consultationId String
+}
+
+model Facture {
+  consultation Consultation @relation(fields: [consultationId], references: [id])
+
+  id             String @id @default(cuid())
+  data           String @db.VarChar(255)
+  consultationId String
+}
+
+model EnAttente {
+  patient   Patient  @relation(fields: [patientId], references: [id])
+  date      DateTime @default(now())
+  patientId String @id
 }
 
 enum UserType {
