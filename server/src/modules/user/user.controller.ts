@@ -2,8 +2,9 @@ import { FastifyReply, FastifyRequest } from 'fastify';
 import bcrypt from 'bcrypt';
 import logger from '../../utils/logger';
 import { CreateUserInput, LoginUserInput } from './user.schemas';
-import { createUser, findUserByUsername } from './user.service';
+import { createUser, findUserByUsername, getUsers } from "./user.service";
 import { server } from '../../app';
+import { prisma } from "@prisma/client";
 
 export async function registerUserHandler(
     request: FastifyRequest<{ Body: CreateUserInput }>,
@@ -52,6 +53,14 @@ export async function loginUserHandler(
     }
 
     return reply.code(401).send({
-        message: 'invalid username or password',
+        message: "invalid username or password",
     });
+}
+
+export async function getUsersHandler(
+    request: FastifyRequest,
+    reply: FastifyReply,
+) {
+    const users = await getUsers();
+    return users;
 }

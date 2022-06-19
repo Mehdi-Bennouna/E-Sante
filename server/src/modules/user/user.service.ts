@@ -22,3 +22,7 @@ export async function createUser(input: CreateUserInput) {
 export async function findUserByUsername(username: string) {
     return prisma.user.findUnique({ where: { username } });
 }
+
+export async function getUsers() {
+    return prisma.user.findMany();
+}
