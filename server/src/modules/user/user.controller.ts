@@ -2,8 +2,15 @@ import { FastifyReply, FastifyRequest } from 'fastify';
 import bcrypt from 'bcrypt';
 import logger from '../../utils/logger';
 import { CreateUserInput, LoginUserInput } from './user.schemas';
-import { createUser, findUserByUsername, getUsers } from "./user.service";
-import { server } from '../../app';
+import {
+    createUser,
+    deleteUser,
+    findUserByUsername,
+    getUser,
+    getUsers,
+    updateUser,
+} from "./user.service";
+import { server } from "../../app";
 import { prisma } from "@prisma/client";
 
 export async function registerUserHandler(
@@ -63,4 +70,30 @@ export async function getUsersHandler(
 ) {
     const users = await getUsers();
     return users;
+}
+
+export async function updateUserHandler(
+    request: FastifyRequest<{ Body: any }>,
+    reply: FastifyReply,
+) {
+    console.log(request.body);
+    const user = await updateUser(request.body);
+
+    return user;
+}
+
+export async function getUserHandler(
+    request: FastifyRequest<{ Params: any }>,
+    reply: FastifyReply,
+) {
+    const user = await getUser(request.params.id);
+    return user;
+}
+
+export async function deleteUserHandler(
+    request: FastifyRequest<{ Params: any }>,
+    reply: FastifyReply,
+) {
+    const user = await deleteUser(request.params.id);
+    return user;
 }
