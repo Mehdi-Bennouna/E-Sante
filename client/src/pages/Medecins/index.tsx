@@ -4,9 +4,12 @@ import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import MedecinActions from "../../components/GridActions/MedecinActions";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import UserModal from "../../components/UserModal";
 
 export default function Medecins() {
     const [data, setData] = useState(null);
+    const [isShown, setIsShown] = useState(false);
+    const [old, setOld] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -33,7 +36,7 @@ export default function Medecins() {
         };
 
         fetchData();
-    }, []);
+    }, [isShown]);
 
     const columns: GridColDef[] = [
         { field: "nom", headerName: "Nom", width: 200 },
@@ -45,12 +48,22 @@ export default function Medecins() {
             width: 200,
             align: "left",
             renderCell: (params) => {
-                return <MedecinActions />;
+                return (
+                    <MedecinActions
+                        row={params.row}
+                        setOld={setOld}
+                        setIsShown={setIsShown}
+                        data={data}
+                        setData={setData}
+                    />
+                );
             },
         },
     ];
 
-    const handleCreateMedecin = () => {};
+    const handleCreateMedecin = () => {
+        setIsShown(true);
+    };
     return (
         <div className={style.Medecin}>
             <div className={style.title}>Medecins</div>
@@ -90,6 +103,14 @@ export default function Medecins() {
                         />
                     )}
                 </div>
+                {isShown && (
+                    <UserModal
+                        type="MEDECIN"
+                        setIsShown={setIsShown}
+                        old={old}
+                        setOld={setOld}
+                    />
+                )}
             </main>
         </div>
     );

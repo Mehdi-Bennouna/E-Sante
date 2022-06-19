@@ -4,9 +4,12 @@ import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import AssistantActions from "../../components/GridActions/AssistantActions";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import UserModal from "../../components/UserModal";
 
 export default function Assistants() {
     const [data, setData] = useState(null);
+    const [isShown, setIsShown] = useState(false);
+    const [old, setOld] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -33,7 +36,7 @@ export default function Assistants() {
         };
 
         fetchData();
-    }, []);
+    }, [isShown]);
 
     const columns: GridColDef[] = [
         { field: "nom", headerName: "Nom", width: 200 },
@@ -45,12 +48,20 @@ export default function Assistants() {
             width: 200,
             align: "left",
             renderCell: (params) => {
-                return <AssistantActions />;
+                return (
+                    <AssistantActions
+                        row={params.row}
+                        setOld={setOld}
+                        setIsShown={setIsShown}
+                    />
+                );
             },
         },
     ];
 
-    const handleCreateAssistant = () => {};
+    const handleCreateAssistant = () => {
+        setIsShown(true);
+    };
     return (
         <div className={style.Assistant}>
             <div className={style.title}>Assistants</div>
@@ -90,6 +101,14 @@ export default function Assistants() {
                         />
                     )}
                 </div>
+                {isShown && (
+                    <UserModal
+                        type="ASSISTANT"
+                        setIsShown={setIsShown}
+                        old={old}
+                        setOld={setOld}
+                    />
+                )}
             </main>
         </div>
     );
