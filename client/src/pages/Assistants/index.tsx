@@ -29,8 +29,6 @@ export default function Assistants() {
                     };
                 });
 
-            console.log(data);
-
             setData(data);
         };
 

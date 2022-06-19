@@ -29,8 +29,6 @@ export default function Medecins() {
                     };
                 });
 
-            console.log(data);
-
             setData(data);
         };
 
