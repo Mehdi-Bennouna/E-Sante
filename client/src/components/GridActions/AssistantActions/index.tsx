@@ -1,6 +1,5 @@
 import style from "./style.module.css";
 import EditIcon from "../../../assets/icons/GridActions/EditIcon.svg";
-import OpenIcon from "../../../assets/icons/GridActions/OpenIcon.svg";
 import DeleteIcon from "../../../assets/icons/GridActions/DeleteIcon.svg";
 
 export default function AssistantActions() {
@@ -9,7 +8,6 @@ export default function AssistantActions() {
 	}`;
 
     const handleEdit = () => {};
-    const handleOpen = () => {};
     const handleDelete = () => {};
 
     return (
@@ -17,7 +15,6 @@ export default function AssistantActions() {
             <style>{myStyle}</style>
             <div className={`${style.AssistantActions} invis`}>
                 <img src={EditIcon} alt="" onClick={handleEdit} />
-                <img src={OpenIcon} alt="" onClick={handleOpen} />
                 <img src={DeleteIcon} alt="" onClick={handleDelete} />
             </div>
         </>
